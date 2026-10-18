@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f5ebdf;
+  --color-paper: #f8f2eb;
+  --color-rust: #c04e2a;
+  --color-rust-dark: #9a3e20;
+  --color-maroon: #661414;
+  --color-ink: #351d1d;
+  --color-clay: #b58777;
+  --color-blush: #e6cbbd;
+
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .card {
+    background: var(--color-paper);
+    border: 1px solid color-mix(in srgb, var(--color-clay) 45%, transparent);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px rgba(53, 29, 29, 0.05);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 0.6rem;
+    padding: 0.45rem 0.9rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.2;
+    transition: background-color 120ms ease, border-color 120ms ease,
+      color 120ms ease;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--color-rust);
+    color: #fff;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-rust-dark);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-maroon);
+    border: 1px solid color-mix(in srgb, var(--color-clay) 70%, transparent);
+  }
+  .btn-secondary:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-blush) 45%, transparent);
+  }
+  .btn-danger {
+    background: transparent;
+    color: var(--color-maroon);
+    border: 1px solid color-mix(in srgb, var(--color-maroon) 45%, transparent);
+  }
+  .btn-danger:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--color-maroon) 8%, transparent);
+  }
+  .btn-sm {
+    padding: 0.28rem 0.6rem;
+    font-size: 0.78rem;
+  }
+  .input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid color-mix(in srgb, var(--color-clay) 65%, transparent);
+    border-radius: 0.6rem;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.9rem;
+    color: var(--color-ink);
+  }
+  .input:focus {
+    outline: 2px solid color-mix(in srgb, var(--color-rust) 55%, transparent);
+    outline-offset: 1px;
+  }
+  .label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: color-mix(in srgb, var(--color-ink) 65%, transparent);
+    margin-bottom: 0.3rem;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border-radius: 999px;
+    padding: 0.12rem 0.6rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+  .mono {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    font-size: 0.78rem;
+  }
+  .prose-quiet {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: color-mix(in srgb, var(--color-ink) 85%, transparent);
+  }
+  .table-steer {
+    width: 100%;
+    font-size: 0.85rem;
+    border-collapse: collapse;
+  }
+  .table-steer th {
+    text-align: left;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: color-mix(in srgb, var(--color-ink) 55%, transparent);
+    font-weight: 700;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 50%, transparent);
+  }
+  .table-steer td {
+    padding: 0.55rem 0.6rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-clay) 30%, transparent);
+    vertical-align: top;
+  }
+}

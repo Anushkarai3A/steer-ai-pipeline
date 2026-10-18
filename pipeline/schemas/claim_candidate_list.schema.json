@@ -1,0 +1,125 @@
+{
+  "$defs": {
+    "ClaimCandidate": {
+      "properties": {
+        "claim_text": {
+          "maxLength": 600,
+          "minLength": 10,
+          "title": "Claim Text",
+          "type": "string"
+        },
+        "kind": {
+          "default": "factual",
+          "title": "Kind",
+          "type": "string"
+        },
+        "risk_level": {
+          "default": "medium",
+          "title": "Risk Level",
+          "type": "string"
+        },
+        "population": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Population"
+        },
+        "study_design": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Study Design"
+        },
+        "outcome": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Outcome"
+        },
+        "effect_size": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Effect Size"
+        },
+        "limitations": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Limitations"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Id"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        }
+      },
+      "required": [
+        "claim_text"
+      ],
+      "title": "ClaimCandidate",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "claims": {
+      "items": {
+        "$ref": "#/$defs/ClaimCandidate"
+      },
+      "title": "Claims",
+      "type": "array"
+    }
+  },
+  "title": "ClaimCandidateList",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,16 @@
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.11.0
+email-validator==2.3.0
+SQLAlchemy==2.0.36
+alembic==1.14.0
+psycopg[binary]==3.2.3
+pymupdf==1.25.1
+python-multipart==0.0.20
+pillow==11.1.0
+python-pptx==1.0.2
+httpx==0.28.1
+imageio-ffmpeg==0.5.1
+pytest==8.3.4
+pytest-timeout==2.3.1

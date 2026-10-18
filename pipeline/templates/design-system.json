@@ -1,0 +1,45 @@
+{
+  "name": "steer. editorial health system",
+  "version": "1.0.0",
+  "colors": {
+    "cream": "#F5EBDF",
+    "rust": "#C04E2A",
+    "maroon": "#661414",
+    "ink": "#351D1D",
+    "clay": "#B58777",
+    "blush": "#E6CBBD",
+    "paper": "#F8F2EB",
+    "white": "#FFFFFF"
+  },
+  "fonts": {
+    "display_candidates": ["georgia.ttf", "georgiab.ttf", "times.ttf", "timesbd.ttf", "DejaVuSerif-Bold.ttf", "DejaVuSerif.ttf", "arialbd.ttf"],
+    "body_candidates": ["segoeui.ttf", "arial.ttf", "DejaVuSans.ttf", "verdana.ttf", "calibri.ttf"],
+    "bold_candidates": ["segoeuib.ttf", "arialbd.ttf", "DejaVuSans-Bold.ttf", "georgiab.ttf", "verdanab.ttf"]
+  },
+  "sizes": {
+    "carousel": {
+      "width": 1080,
+      "height": 1080,
+      "headline": 74,
+      "body": 40,
+      "meta": 26,
+      "chip": 24
+    },
+    "static": {
+      "width": 1080,
+      "height": 1080,
+      "headline": 80,
+      "body": 44,
+      "meta": 26
+    },
+    "reel": {
+      "width": 1080,
+      "height": 1920,
+      "headline": 86,
+      "body": 46,
+      "caption": 38,
+      "meta": 28
+    }
+  },
+  "brandmark": "steer."
+}

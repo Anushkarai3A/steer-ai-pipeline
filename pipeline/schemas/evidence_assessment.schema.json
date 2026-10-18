@@ -1,0 +1,19 @@
+{
+  "properties": {
+    "status": {
+      "title": "Status",
+      "type": "string"
+    },
+    "verification_notes": {
+      "default": "",
+      "title": "Verification Notes",
+      "type": "string"
+    }
+  },
+  "required": [
+    "status"
+  ],
+  "title": "EvidenceAssessment",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

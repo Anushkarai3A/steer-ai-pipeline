@@ -1,0 +1,178 @@
+{
+  "$defs": {
+    "ReelScene": {
+      "properties": {
+        "index": {
+          "title": "Index",
+          "type": "integer"
+        },
+        "start_seconds": {
+          "title": "Start Seconds",
+          "type": "number"
+        },
+        "end_seconds": {
+          "title": "End Seconds",
+          "type": "number"
+        },
+        "on_screen_text": {
+          "default": "",
+          "title": "On Screen Text",
+          "type": "string"
+        },
+        "voiceover": {
+          "default": "",
+          "title": "Voiceover",
+          "type": "string"
+        },
+        "visual_direction": {
+          "default": "",
+          "title": "Visual Direction",
+          "type": "string"
+        },
+        "claim_ids": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Claim Ids",
+          "type": "array"
+        }
+      },
+      "required": [
+        "index",
+        "start_seconds",
+        "end_seconds"
+      ],
+      "title": "ReelScene",
+      "type": "object"
+    },
+    "SourceNote": {
+      "properties": {
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Id"
+        },
+        "doi": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Doi"
+        },
+        "url": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Url"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "SourceNote",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "concept": {
+      "default": "",
+      "title": "Concept",
+      "type": "string"
+    },
+    "audience": {
+      "default": "",
+      "title": "Audience",
+      "type": "string"
+    },
+    "main_message": {
+      "default": "",
+      "title": "Main Message",
+      "type": "string"
+    },
+    "duration_seconds": {
+      "default": 45,
+      "maximum": 120,
+      "minimum": 10,
+      "title": "Duration Seconds",
+      "type": "integer"
+    },
+    "hook": {
+      "default": "",
+      "title": "Hook",
+      "type": "string"
+    },
+    "scenes": {
+      "items": {
+        "$ref": "#/$defs/ReelScene"
+      },
+      "title": "Scenes",
+      "type": "array"
+    },
+    "on_screen_captions": {
+      "default": true,
+      "title": "On Screen Captions",
+      "type": "boolean"
+    },
+    "caption": {
+      "default": "",
+      "title": "Caption",
+      "type": "string"
+    },
+    "hashtags": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Hashtags",
+      "type": "array"
+    },
+    "source_notes": {
+      "items": {
+        "$ref": "#/$defs/SourceNote"
+      },
+      "title": "Source Notes",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "disclaimer": {
+      "default": "",
+      "title": "Disclaimer",
+      "type": "string"
+    },
+    "closing_takeaway": {
+      "default": "",
+      "title": "Closing Takeaway",
+      "type": "string"
+    }
+  },
+  "title": "ReelPayload",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

@@ -1,0 +1,58 @@
+# Steer Research Studio — full stack (Postgres + API + SPA)
+#
+#   docker compose up --build
+#   Frontend: http://localhost:3000   API: http://localhost:8000/api/health
+#
+# NOTE: SQLite (no Docker) is the default for local development; this file is
+# the production-shaped deployment. Demo users are seeded on first boot.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: steer
+      POSTGRES_PASSWORD: steer
+      POSTGRES_DB: steer
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U steer -d steer"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://steer:steer@db:5432/steer
+      SECRET_KEY: ${SECRET_KEY:-compose-only-not-a-real-secret}
+      UPLOAD_DIR: /app/data/uploads
+      GENERATED_DIR: /app/data/generated
+      CORS_ORIGINS: http://localhost:3000,http://127.0.0.1:3000
+      # Deterministic demo generation unless you provide a real provider:
+      LLM_PROVIDER: ${LLM_PROVIDER:-none}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.openai.com/v1}
+    volumes:
+      - steer-data:/app/data
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  pgdata:
+  steer-data:

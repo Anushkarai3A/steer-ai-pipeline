@@ -1,0 +1,139 @@
+{
+  "$defs": {
+    "SynthesisEntry": {
+      "properties": {
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        },
+        "source_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source Id"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "category": {
+          "default": "finding",
+          "title": "Category",
+          "type": "string"
+        },
+        "section": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Section"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "title": "SynthesisEntry",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "research_question": {
+      "title": "Research Question",
+      "type": "string"
+    },
+    "study_design": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Study Design",
+      "type": "array"
+    },
+    "population": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Population",
+      "type": "array"
+    },
+    "methods": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Methods",
+      "type": "array"
+    },
+    "key_findings": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Key Findings",
+      "type": "array"
+    },
+    "numbers": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Numbers",
+      "type": "array"
+    },
+    "limitations": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Limitations",
+      "type": "array"
+    },
+    "conflicts": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Conflicts",
+      "type": "array"
+    },
+    "practical_interpretation": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Practical Interpretation",
+      "type": "array"
+    },
+    "not_established": {
+      "items": {
+        "$ref": "#/$defs/SynthesisEntry"
+      },
+      "title": "Not Established",
+      "type": "array"
+    },
+    "conflict_note": {
+      "default": "",
+      "title": "Conflict Note",
+      "type": "string"
+    }
+  },
+  "required": [
+    "research_question"
+  ],
+  "title": "ResearchSynthesis",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}
